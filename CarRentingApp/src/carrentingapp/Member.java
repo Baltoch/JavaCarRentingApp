@@ -12,8 +12,7 @@ public class Member extends User {
     private String type;
     private double discountLevel;
     private Membership membership;
-    
-        
+            
     public void addToDB()
     {
         
