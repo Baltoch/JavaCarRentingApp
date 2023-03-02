@@ -43,5 +43,6 @@ public class Member extends User {
     public void subscribe(Membership membership)
     {
         this.membership = membership;
+        this.updateInDB();
     }
 }
