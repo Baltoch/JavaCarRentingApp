@@ -12,6 +12,12 @@ public class Membership {
     private String memebershipType;
     private double price;
     private double additionalDiscount;
+
+    public Membership(String memebershipType, double price, double additionalDiscount) {
+        this.memebershipType = memebershipType;
+        this.price = price;
+        this.additionalDiscount = additionalDiscount;
+    }
             
     public void addToDB()
     {

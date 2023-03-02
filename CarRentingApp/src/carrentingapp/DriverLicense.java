@@ -10,7 +10,11 @@ package carrentingapp;
  */
 public class DriverLicense {
     private String driverLicenseNumber;
-        
+
+    public DriverLicense(String driverLicenseNumber) {
+        this.driverLicenseNumber = driverLicenseNumber;
+    }
+    
     public void addToDB()
     {
         

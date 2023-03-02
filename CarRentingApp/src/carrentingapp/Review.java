@@ -13,8 +13,14 @@ public class Review {
     private String message;
     private Rental rental;
     private User user;
+
+    public Review(int reviewId, String message, Rental rental, User user) {
+        this.reviewId = reviewId;
+        this.message = message;
+        this.rental = rental;
+        this.user = user;
+    }
     
-        
     public void addToDB()
     {
         

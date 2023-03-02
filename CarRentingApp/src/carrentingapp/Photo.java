@@ -11,6 +11,11 @@ package carrentingapp;
 public class Photo {
     private String accessLink;
     private Car car;
+
+    public Photo(String accessLink, Car car) {
+        this.accessLink = accessLink;
+        this.car = car;
+    }
             
     public void addToDB()
     {

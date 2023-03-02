@@ -18,6 +18,18 @@ public class Model {
     private char transmissionType;
     private int horsePower;
     private String type;
+
+    public Model(String model, String brand, double dailyRate, int numOfSeats, int bootVolume, double additionalMilePrice, char transmissionType, int horsePower, String type) {
+        this.model = model;
+        this.brand = brand;
+        this.dailyRate = dailyRate;
+        this.numOfSeats = numOfSeats;
+        this.bootVolume = bootVolume;
+        this.additionalMilePrice = additionalMilePrice;
+        this.transmissionType = transmissionType;
+        this.horsePower = horsePower;
+        this.type = type;
+    }
             
     public void addToDB()
     {

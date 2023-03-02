@@ -20,8 +20,21 @@ public class Rental {
     private Location pickUpLocation;
     private Location returnLocation;
     private Insurance insurance;
+
+    public Rental(int rentalId, Date startingDate, Date endingDate, int mileage, Employee reviewer, User renter, Transaction transaction, Car car, Location pickUpLocation, Location returnLocation, Insurance insurance) {
+        this.rentalId = rentalId;
+        this.startingDate = startingDate;
+        this.endingDate = endingDate;
+        this.mileage = mileage;
+        this.reviewer = reviewer;
+        this.renter = renter;
+        this.transaction = transaction;
+        this.car = car;
+        this.pickUpLocation = pickUpLocation;
+        this.returnLocation = returnLocation;
+        this.insurance = insurance;
+    }
     
-        
     public void addToDB()
     {
         

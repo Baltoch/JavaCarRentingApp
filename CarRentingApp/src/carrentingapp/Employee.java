@@ -11,7 +11,13 @@ import java.sql.Date;
 public class Employee extends User {
     private double baseSalary;
     private String jobTitle;
-            
+
+    public Employee(double baseSalary, String jobTitle, String email, String password, String firstName, String lastName, DriverLicense driverLicense) {
+        super(email, password, firstName, lastName, driverLicense);
+        this.baseSalary = baseSalary;
+        this.jobTitle = jobTitle;
+    }
+    
     public void addToDB()
     {
         

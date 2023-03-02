@@ -14,6 +14,14 @@ public class Transaction {
     private double amount;
     private double paidAmount;
     private User debtor;
+
+    public Transaction(String transactionId, String status, double amount, double paidAmount, User debtor) {
+        this.transactionId = transactionId;
+        this.status = status;
+        this.amount = amount;
+        this.paidAmount = paidAmount;
+        this.debtor = debtor;
+    }
     
     public void addToDB()
     {

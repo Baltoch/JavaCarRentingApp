@@ -11,6 +11,11 @@ package carrentingapp;
 public class Location {
     private int locationId;
     private String name;
+
+    public Location(int locationId, String name) {
+        this.locationId = locationId;
+        this.name = name;
+    }
             
     public void addToDB()
     {

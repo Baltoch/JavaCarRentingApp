@@ -14,6 +14,14 @@ public class Discount {
     private Date endingDate;
     private Employee employee;
     private Car car;
+
+    public Discount(double discountLevel, Date startingDate, Date endingDate, Employee employee, Car car) {
+        this.discountLevel = discountLevel;
+        this.startingDate = startingDate;
+        this.endingDate = endingDate;
+        this.employee = employee;
+        this.car = car;
+    }
             
     public void addToDB()
     {

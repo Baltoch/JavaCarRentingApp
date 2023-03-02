@@ -13,6 +13,13 @@ public class Insurance {
     private String coverage;
     private String conditions;
     private double price;
+
+    public Insurance(int contactNumber, String coverage, String conditions, double price) {
+        this.contactNumber = contactNumber;
+        this.coverage = coverage;
+        this.conditions = conditions;
+        this.price = price;
+    }
     
     public void addToDB()
     {
