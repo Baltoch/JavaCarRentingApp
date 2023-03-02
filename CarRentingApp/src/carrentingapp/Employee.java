@@ -116,19 +116,25 @@ public class Employee extends User {
         discount.updateInDB();
     }
     
-    public void addMember()
+    public void addMember(String type, double discountLevel, Membership membership, String email, String password, String firstName, String lastName, DriverLicense driverLicense)
     {
-        
+        Member member = new Member(type, discountLevel, membership, email, password, firstName, lastName, driverLicense);
+        member.addToDB();
     }
     
-    public void updateMember()
+    public void addMember(Member member)
     {
-        
+        member.addToDB();
     }
     
-    public void removeMember()
+    public void updateMember(Member member)
     {
-        
+        member.updateInDB();
+    }
+    
+    public void removeMember(Member member)
+    {
+        member.removeFromDB();
     }
     
     public void updateRental()
