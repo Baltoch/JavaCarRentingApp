@@ -20,6 +20,30 @@ public class Car {
         this.location = location;
         this.model = model;
     }
+
+    public void setMileage(int mileage) {
+        this.mileage = mileage;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public String getRegistrationNumber() {
+        return registrationNumber;
+    }
+
+    public int getMileage() {
+        return mileage;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public Model getModel() {
+        return model;
+    }
             
     public void addToDB()
     {
