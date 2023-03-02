@@ -137,19 +137,25 @@ public class Employee extends User {
         member.removeFromDB();
     }
     
-    public void updateRental()
+    public void updateRental(Rental rental)
     {
-        
+        rental.updateInDB();
     }
     
-    public void removeRental()
+    public void removeRental(Rental rental)
     {
-        
+        rental.removeFromDB();
     }
     
-    public void addRental()
+    public void addRental(Rental rental)
     {
-        
+        rental.addToDB();
+    }
+    
+    public void addRental(int rentalId, Date startingDate, Date endingDate, int mileage, Employee validationOfficer, User renter, Transaction transaction, Car car, Location pickUpLocation, Location returnLocation, Insurance insurance)
+    {
+        Rental rental = new Rental(rentalId, startingDate, endingDate, mileage, this, renter, transaction, car, pickUpLocation, returnLocation, insurance);
+        rental.addToDB();
     }
     
     public void addInsurance()
