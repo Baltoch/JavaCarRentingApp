@@ -32,6 +32,46 @@ public class Model {
         this.horsePower = horsePower;
         this.type = type;
     }
+
+    public String getModel() {
+        return model;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public double getDailyRate() {
+        return dailyRate;
+    }
+
+    public int getNumOfSeats() {
+        return numOfSeats;
+    }
+
+    public int getBootVolume() {
+        return bootVolume;
+    }
+
+    public double getMilePrice() {
+        return milePrice;
+    }
+
+    public double getAdditionalMilePrice() {
+        return additionalMilePrice;
+    }
+
+    public char getTransmissionType() {
+        return transmissionType;
+    }
+
+    public int getHorsePower() {
+        return horsePower;
+    }
+
+    public String getType() {
+        return type;
+    }
             
     public void addToDB()
     {
