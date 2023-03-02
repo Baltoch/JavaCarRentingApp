@@ -13,12 +13,13 @@ public class Member extends User {
     private double discountLevel;
     private Membership membership;
 
-    public Member(String type, double discountLevel, Membership membership) {
+    public Member(String type, double discountLevel, Membership membership, String email, String password, String firstName, String lastName, DriverLicense driverLicense) {
+        super(email, password, firstName, lastName, driverLicense);
         this.type = type;
         this.discountLevel = discountLevel;
         this.membership = membership;
     }
-            
+    
     public void addToDB()
     {
         
