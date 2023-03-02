@@ -158,18 +158,24 @@ public class Employee extends User {
         rental.addToDB();
     }
     
-    public void addInsurance()
+    public void addInsurance(Insurance insurance)
     {
-        
+        insurance.addToDB();
     }
     
-    public void updateInsurance()
+    public void addInsurance(int contactNumber, String coverage, String conditions, double price)
     {
-        
+        Insurance insurance = new Insurance(contactNumber, coverage, conditions, price);
+        insurance.addToDB();
     }
     
-    public void removeInsurance()
+    public void updateInsurance(Insurance insurance)
     {
-        
+        insurance.updateInDB();
+    }
+    
+    public void removeInsurance(Insurance insurance)
+    {
+        insurance.removeFromDB();
     }
 }
