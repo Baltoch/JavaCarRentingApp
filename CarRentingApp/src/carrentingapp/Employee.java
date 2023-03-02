@@ -67,14 +67,20 @@ public class Employee extends User {
         rental.updateInDB();
     }
     
-    public void addLocation()
+    public void addLocation(int locationId, String name)
     {
-        
+        Location location = new Location(locationId, name);
+        location.addToDB();
     }
     
-    public void removeLocation()
+    public void addLocation(Location location)
     {
-        
+        location.addToDB();
+    }
+    
+    public void removeLocation(Location location)
+    {
+        location.removeFromDB();
     }
     
     public double computeCurrentBonus()
