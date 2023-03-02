@@ -14,6 +14,14 @@ public class Move {
     private Car car;
     private Location oldLocation;
     private Location newLocation;
+
+    public Move(Date moveDate, Employee employee, Car car, Location oldLocation, Location newLocation) {
+        this.moveDate = moveDate;
+        this.employee = employee;
+        this.car = car;
+        this.oldLocation = oldLocation;
+        this.newLocation = newLocation;
+    }
             
     public void addToDB()
     {
