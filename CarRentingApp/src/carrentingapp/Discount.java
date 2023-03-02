@@ -22,7 +22,47 @@ public class Discount {
         this.employee = employee;
         this.car = car;
     }
-            
+
+    public double getDiscountLevel() {
+        return discountLevel;
+    }
+
+    public void setDiscountLevel(double discountLevel) {
+        this.discountLevel = discountLevel;
+    }
+
+    public Date getStartingDate() {
+        return startingDate;
+    }
+
+    public void setStartingDate(Date startingDate) {
+        this.startingDate = startingDate;
+    }
+
+    public Date getEndingDate() {
+        return endingDate;
+    }
+
+    public void setEndingDate(Date endingDate) {
+        this.endingDate = endingDate;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+    
     public void addToDB()
     {
         
