@@ -93,19 +93,27 @@ public class Employee extends User {
         
     }
     
-    public void addDiscount()
+    public void addDiscount(double discountLevel, Date startingDate, Date endingDate, Car car)
     {
-        
+        Discount discount = new Discount(discountLevel, startingDate, endingDate, this, car);
+        discount.addToDB();
     }
     
-    public void removeDiscount()
+    public void addDiscount(Discount discount)
     {
-        
+        discount.setEmployee(this);
+        discount.addToDB();
     }
     
-    public void updateDiscount()
+    public void removeDiscount(Discount discount)
     {
-        
+        discount.removeFromDB();
+    }
+    
+    public void updateDiscount(Discount discount)
+    {
+        discount.setEmployee(this);
+        discount.updateInDB();
     }
     
     public void addMember()
