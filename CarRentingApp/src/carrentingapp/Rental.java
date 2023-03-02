@@ -13,7 +13,7 @@ public class Rental {
     private Date startingDate;
     private Date endingDate;
     private int mileage;
-    private Employee reviewer;
+    private Employee validationOfficer;
     private User renter;
     private Transaction transaction;
     private Car car;
@@ -21,12 +21,12 @@ public class Rental {
     private Location returnLocation;
     private Insurance insurance;
 
-    public Rental(int rentalId, Date startingDate, Date endingDate, int mileage, Employee reviewer, User renter, Transaction transaction, Car car, Location pickUpLocation, Location returnLocation, Insurance insurance) {
+    public Rental(int rentalId, Date startingDate, Date endingDate, int mileage, Employee validationOfficer, User renter, Transaction transaction, Car car, Location pickUpLocation, Location returnLocation, Insurance insurance) {
         this.rentalId = rentalId;
         this.startingDate = startingDate;
         this.endingDate = endingDate;
         this.mileage = mileage;
-        this.reviewer = reviewer;
+        this.validationOfficer = validationOfficer;
         this.renter = renter;
         this.transaction = transaction;
         this.car = car;
