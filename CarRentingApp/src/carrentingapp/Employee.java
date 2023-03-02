@@ -39,16 +39,28 @@ public class Employee extends User {
         move.addToDB();
     }
     
-    public void addCar()
+    public void addCar(String registrationNumber, int mileage, Location location, Model model)
     {
-        
+        Car car = new Car(registrationNumber, mileage, location, model);
+        car.addToDB();
     }
     
-    public void removeCar()
+    public void addCar(Car car)
     {
-        
+        car.addToDB();
     }
     
+    public void removeCar(Car car)
+    {
+        car.removeFromDB();
+    }
+    
+    public void updateCar(Car car, int mileage, Location location)
+    {
+        car.setMileage(mileage);
+        car.setLocation(location);
+        car.updateInDB();
+    }
     public void reviewRental()
     {
         
