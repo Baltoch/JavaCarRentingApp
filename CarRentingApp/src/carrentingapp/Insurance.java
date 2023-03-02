@@ -20,6 +20,10 @@ public class Insurance {
         this.conditions = conditions;
         this.price = price;
     }
+
+    public double getPrice() {
+        return price;
+    }
     
     public void addToDB()
     {
