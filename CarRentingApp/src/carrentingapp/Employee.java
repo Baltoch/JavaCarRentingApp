@@ -61,13 +61,10 @@ public class Employee extends User {
         car.setLocation(location);
         car.updateInDB();
     }
-    public void reviewRental(Rental rental, boolean valid)
+    public void reviewRental(Rental rental)
     {
-        if(!valid) rental.removeFromDB();
-        else {
-            rental.setValidationOfficer(this);
-            rental.updateInDB();
-        }
+        rental.setValidationOfficer(this);
+        rental.updateInDB();
     }
     
     public void addLocation()
