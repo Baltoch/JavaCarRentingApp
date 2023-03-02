@@ -14,17 +14,19 @@ public class Model {
     private double dailyRate;
     private int numOfSeats;
     private int bootVolume;
+    private double milePrice;
     private double additionalMilePrice;
     private char transmissionType;
     private int horsePower;
     private String type;
 
-    public Model(String model, String brand, double dailyRate, int numOfSeats, int bootVolume, double additionalMilePrice, char transmissionType, int horsePower, String type) {
+    public Model(String model, String brand, double dailyRate, int numOfSeats, int bootVolume, double milePrice, double additionalMilePrice, char transmissionType, int horsePower, String type) {
         this.model = model;
         this.brand = brand;
         this.dailyRate = dailyRate;
         this.numOfSeats = numOfSeats;
         this.bootVolume = bootVolume;
+        this.milePrice = milePrice;
         this.additionalMilePrice = additionalMilePrice;
         this.transmissionType = transmissionType;
         this.horsePower = horsePower;
