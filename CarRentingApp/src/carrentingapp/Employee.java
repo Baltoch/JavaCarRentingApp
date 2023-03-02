@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package carrentingapp;
-
+import java.sql.Date;
 /**
  *
  * @author balth
@@ -27,9 +27,10 @@ public class Employee extends User {
         
     }
     
-    public void moveCar()
+    public void moveCar(Date date, Car car, Location oldLocation, Location newLocation)
     {
-        
+        Move move = new Move(date, this, car, oldLocation, newLocation);
+        move.addToDB();
     }
     
     public void addCar()
