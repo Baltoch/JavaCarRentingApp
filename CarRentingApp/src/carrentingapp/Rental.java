@@ -140,7 +140,7 @@ public class Rental {
     
     public double computePrice()
     {
-        
+        return insurance.getPrice() + car.getModel().getDailyRate() * (endingDate.getTime() - startingDate.getTime())/86400000 + car.getModel().getMilePrice() * mileage;
     }
     
     public Car[] browseCar()
