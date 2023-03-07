@@ -33,7 +33,7 @@ public class MySqlConnection {
         } 
     }
     
-    public ResultSet executeQuery(String query)
+    public ResultSet executeSELECTQuery(String query)
     {
         try
         {
@@ -44,6 +44,34 @@ public class MySqlConnection {
         {
             System.out.println(e.getMessage());
             return null;
+        }
+    }
+    
+    public void executeINSERTQuery(String query)
+    {
+        try
+        {
+            Statement stmt=conn.createStatement();
+            int rows = stmt.executeUpdate(query);
+            if(rows>1) throw new SQLException("Error: Multiple rows modified");
+            else if(rows<1) throw new SQLException("Error: No rows modified");
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void executeUPDATEQuery(String query)
+    {
+        try
+        {
+            Statement stmt=conn.createStatement();
+            stmt.executeUpdate(query);
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e.getMessage());
         }
     }
     
