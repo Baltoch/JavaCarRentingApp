@@ -22,17 +22,23 @@ public class Member extends User {
     
     public void addToDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeINSERTQuery("INSERT INTO Members (email, discountLevel, membership) VALUES (\""+email+"\", "+discountLevel+", \""+membership.getMemebershipType()+"\")");
+        connection.close();
     }
     
     public void removeFromDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeUPDATEQuery("DELETE FROM Users WHERE email=\""+email+"\"");
+        connection.close();
     }
     
     public void updateInDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeUPDATEQuery("UPDATE Users SET type=\""+type+"\", discountLevel="+discountLevel+", membership=\""+membership.getMemebershipType()+"\" WHERE email=\""+email+"\"");
+        connection.close();
     }
     
     public Membership[] browseMembership()

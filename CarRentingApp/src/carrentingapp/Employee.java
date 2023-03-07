@@ -20,17 +20,28 @@ public class Employee extends User {
     
     public void addToDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeINSERTQuery("INSERT INTO Employees (email, baseSalary, jobTitle) VALUES (\""+email+"\", "+baseSalary+", \""+jobTitle+"\");");
+        connection.close();
     }
     
     public void removeFromDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeUPDATEQuery("DELETE FROM Employees WHERE email=\""+email+"\"");
+        connection.close();
     }
     
     public void updateInDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeUPDATEQuery("UPDATE Employees SET baseSalary="+baseSalary+", jobTitle=\""+jobTitle+"\" WHERE email=\""+email+"\"");
+        connection.close();
+    }
+    
+    public String getEmail()
+    {
+        return email;
     }
     
     public void moveCar(Date date, Car car, Location oldLocation, Location newLocation)

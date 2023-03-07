@@ -125,17 +125,23 @@ public class Rental {
     
     public void addToDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeINSERTQuery("INSERT INTO Rental (startingDate, endingDate, mileage, validationOfficer, car, pickUpLocation, returnLocation, insurance, renter) VALUES ("+startingDate+", "+endingDate+", "+mileage+", \""+validationOfficer.getEmail()+"\", \""+car.getRegistrationNumber()+"\", "+pickUpLocation.getId()+", "+returnLocation.getId()+", "+insurance.getContractNumber()+",  \""+renter.getEmail()+"\")");
+        connection.close();
     }
     
     public void removeFromDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeUPDATEQuery("DELETE FROM Rental WHERE rentalId="+rentalId);
+        connection.close();
     }
     
     public void updateInDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeUPDATEQuery("UPDATE Rental SET startingDate=\""+startingDate+"\", endingDate=\""+endingDate+"\", mileage="+mileage+", validationOfficer=\""+validationOfficer.getEmail()+"\", car=\""+car.getRegistrationNumber()+"\", pickUpLocation="+pickUpLocation.getId()+", returnLocation="+returnLocation.getId()+", insurance="+insurance.getContractNumber()+", renter=\""+renter.getEmail()+"\" WHERE rentalId="+rentalId);
+        connection.close();
     }
     
     public double computePrice()

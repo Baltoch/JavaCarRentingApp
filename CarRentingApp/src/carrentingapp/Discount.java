@@ -65,16 +65,29 @@ public class Discount {
     
     public void addToDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeINSERTQuery("INSERT INTO Discount (employee, car, discountLevel, startingDate, endingDate) VALUES (\""+employee.getEmail()+"\", \""+car.getRegistrationNumber()+"\", "+discountLevel+", \""+startingDate+"\", \""+endingDate+"\")");
+        connection.close();
     }
     
     public void removeFromDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeUPDATEQuery("DELETE FROM Discount WHERE startingDate=\""+startingDate+"\" AND car=\""+car.getRegistrationNumber()+"\"");
+        connection.close();
     }
     
     public void updateInDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeUPDATEQuery("UPDATE Discount SET employee=\""+employee.getEmail()+"\", discountLevel="+discountLevel+", endingDate=\""+endingDate+"\" WHERE startingDate=\""+startingDate+"\" AND car=\""+car.getRegistrationNumber()+"\"");
+        connection.close();
+    }
+    
+    public void updateInDB(Date newStartingDate, String newRegistrationNumber)
+    {
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeUPDATEQuery("UPDATE Discount SET employee=\""+employee.getEmail()+"\", car=\""+newRegistrationNumber+"\", discountLevel="+discountLevel+", startingDate=\""+newStartingDate+"\", endingDate=\""+endingDate+"\" WHERE startingDate=\""+startingDate+"\" AND car=\""+car.getRegistrationNumber()+"\"");
+        connection.close();
     }
 }

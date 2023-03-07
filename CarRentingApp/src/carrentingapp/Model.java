@@ -75,16 +75,22 @@ public class Model {
             
     public void addToDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeINSERTQuery("INSERT INTO Model (model, brand, dailyRate, numOfSeats, bootVolume, milePrice, additionalMilePrice, transmissionType, horsePower, type) VALUES (\""+model+"\", \""+brand+"\", "+dailyRate+", "+numOfSeats+", "+bootVolume+", "+milePrice+", "+additionalMilePrice+", \""+transmissionType+"\", "+horsePower+", \""+type+"\")");
+        connection.close();
     }
     
     public void removeFromDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeUPDATEQuery("DELETE FROM Model WHERE model=\""+model+"\" AND brand=\""+brand+"\"");
+        connection.close();
     }
     
     public void updateInDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeUPDATEQuery("UPDATE Model SET dailyRate="+dailyRate+", numOfSeats="+numOfSeats+", bootVolume="+bootVolume+", milePrice="+milePrice+", additionalMilePrice="+additionalMilePrice+", transmissionType=\""+transmissionType+"\", horsePower="+horsePower+", type=\""+type+"\" WHERE model=\""+model+"\" AND brand=\""+brand+"\"");
+        connection.close();
     }
 }

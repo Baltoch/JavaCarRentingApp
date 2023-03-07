@@ -47,16 +47,22 @@ public class Car {
             
     public void addToDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeINSERTQuery("INSERT INTO Car (registrationNumber, mileage, location, model, brand) VALUES (\""+registrationNumber+"\", "+mileage+", "+location.getId()+", \""+model.getModel()+"\", "+model.getBrand()+")");
+        connection.close();
     }
     
     public void removeFromDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeUPDATEQuery("DELETE FROM Car WHERE registrationNumber=\""+registrationNumber+"\"");
+        connection.close();
     }
     
     public void updateInDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeUPDATEQuery("UPDATE Car SET mileage="+mileage+", location="+location.getId()+", model=\""+model.getModel()+"\", brand=\""+model.getBrand()+"\" WHERE registrationNumber=\""+registrationNumber+"\"");
+        connection.close();
     }
 }

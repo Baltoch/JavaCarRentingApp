@@ -19,16 +19,22 @@ public class Photo {
             
     public void addToDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeINSERTQuery("INSERT INTO Photos (accessLink, car) Values (\""+accessLink+"\", \""+car.getRegistrationNumber()+"\")");
+        connection.close();
     }
     
     public void removeFromDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeUPDATEQuery("DELETE FROM Photos WHERE accessLink=\""+accessLink+"\"");
+        connection.close();
     }
     
     public void updateInDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeUPDATEQuery("UPDATE Photos SET car=\""+car.getRegistrationNumber()+"\" WHERE accessLink=\""+accessLink+"\"");
+        connection.close();
     }
 }
