@@ -15,6 +15,7 @@ public class CarRentingApp {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        AppWindow window = new AppWindow();
     }
     
 }

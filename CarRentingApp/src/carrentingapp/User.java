@@ -9,7 +9,7 @@ package carrentingapp;
  * @author balth
  */
 public class User {
-    private String email;
+    protected String email;
     private String password;
     private String firstName;
     private String lastName;
@@ -25,7 +25,9 @@ public class User {
     
     public void addToDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeINSERTQuery("");
+        connection.close();
     }
     
     public void removeFromDB()
@@ -35,7 +37,9 @@ public class User {
     
     public void updateInDB()
     {
-        
+        MySqlConnection connection = new MySqlConnection();
+        connection.executeUPDATEQuery("");
+        connection.close();
     }
     
     public Rental bookRental()
