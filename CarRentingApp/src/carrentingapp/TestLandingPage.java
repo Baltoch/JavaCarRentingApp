@@ -11,9 +11,9 @@ import java.awt.Container;
  *
  * @author balth
  */
-public class LandingPage extends JPanel{
+public class TestLandingPage extends JPanel{
     
-    public LandingPage()
+    public TestLandingPage()
     {
         this.setSize(1920, 1080);
         this.setLayout(null);

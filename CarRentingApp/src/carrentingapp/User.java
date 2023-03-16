@@ -26,7 +26,7 @@ public class User {
     public void addToDB()
     {
         MySqlConnection connection = new MySqlConnection();
-        connection.executeINSERTQuery("");
+        connection.executeINSERTQuery("INSERT INTO Users (email, password, firstName, lastName) VALUES (\""+email+"\", \""+password+"\", \""+firstName+"\", \""+lastName+"\");");
         connection.close();
     }
     
