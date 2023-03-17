@@ -11,9 +11,9 @@ import javax.swing.JButton;
  *
  * @author balth
  */
-public class MenuLinks extends JButton {
+public class MenuLink extends JButton {
     
-    public MenuLinks(String text)
+    public MenuLink(String text)
     {
         super();
         this.setFont(new java.awt.Font("Arial", 1, 20)); 
@@ -23,13 +23,13 @@ public class MenuLinks extends JButton {
         this.setContentAreaFilled(false);
     }
     
-    public MenuLinks(String text, int x, int y, int width, int height)
+    public MenuLink(String text, int x, int y, int width, int height)
     {
         this(text);
         this.setBounds(x, y, width, height);
     }
     
-    public MenuLinks(String text, int x, int y, int width, int height, int fontSize)
+    public MenuLink(String text, int x, int y, int width, int height, int fontSize)
     {
         this(text, x, y, width, height);
         this.setFont(new java.awt.Font("Arial", 1, fontSize));

@@ -42,7 +42,9 @@ public class MenuNavBar {
                 window.page = window.page.prev;
                 window.page.next = null;
             }
+            window.getLayeredPane().removeAll();
             window.page.addToLayeredPane();
+            window.page.setVisible(false);
             window.page.setVisible(true);
         });
         
@@ -55,6 +57,15 @@ public class MenuNavBar {
         button2.setBounds((int) (widthRatio*1211), (int) (heightRatio*284), (int) (widthRatio*40), (int) (heightRatio*40));
         button2.setIcon(new ImageIcon(image2.getImage().getScaledInstance(button2.getWidth(), button2.getHeight(), Image.SCALE_SMOOTH)));
         button2.setRolloverIcon(new ImageIcon(hoverImage2.getImage().getScaledInstance(button2.getWidth(), button2.getHeight(), Image.SCALE_SMOOTH)));
+        button2.addActionListener((ActionEvent evt) -> {
+            window.page.removeFromLayeredPane();
+            window.page = window.page.prev;
+            window.getLayeredPane().removeAll();
+            window.page.addToLayeredPane();
+            window.page.setVisible(false);
+            window.page.setVisible(true);
+            
+        });
         
         ImageIcon image3 = new ImageIcon(getClass().getResource("/carrentingapp/testimg/Button/PowerOffThin.png"));
         ImageIcon hoverImage3 = new ImageIcon(getClass().getResource("/carrentingapp/testimg/Button/PowerOffHover.png"));
@@ -70,11 +81,20 @@ public class MenuNavBar {
         });
     }
     
-    public void addToLayeredPane(JLayeredPane layeredPane)
+    public void addToLayeredPane()
     {
+        JLayeredPane layeredPane = window.getLayeredPane();
         layeredPane.add(button1);
         layeredPane.add(button2);
         layeredPane.add(button3);
+    }
+    
+    public void removeFromLayeredPane()
+    {
+        JLayeredPane layeredPane = window.getLayeredPane();
+        layeredPane.remove(button1);
+        layeredPane.remove(button2);
+        layeredPane.remove(button3);
     }
     
     public void setVisible(boolean visible)

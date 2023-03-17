@@ -44,11 +44,8 @@ public class NavBar {
                 window.page.next = null;
             }
             window.getLayeredPane().removeAll();
-            this.addToLayeredPane(window.getLayeredPane());
             window.page.addToLayeredPane();
-            this.setVisible(false);
             window.page.setVisible(false);
-            this.setVisible(true);
             window.page.setVisible(true);
         });
         
@@ -71,6 +68,17 @@ public class NavBar {
         button3.setBounds((int) (widthRatio*1211), (int) (heightRatio*284), (int) (widthRatio*40), (int) (heightRatio*40));
         button3.setIcon(new ImageIcon(image3.getImage().getScaledInstance(button3.getWidth(), button3.getHeight(), Image.SCALE_SMOOTH)));
         button3.setRolloverIcon(new ImageIcon(hoverImage3.getImage().getScaledInstance(button3.getWidth(), button3.getHeight(), Image.SCALE_SMOOTH)));
+        button3.addActionListener((ActionEvent evt) -> {
+            Page temp = new UserMenu(window);
+            temp.next = window.page.next;
+            window.page.next = temp;
+            temp.prev = window.page;
+            window.page = temp;
+            window.getLayeredPane().removeAll();
+            window.page.addToLayeredPane();
+            window.page.setVisible(false);
+            window.page.setVisible(true);
+        });
         
         ImageIcon image4 = new ImageIcon(getClass().getResource("/carrentingapp/testimg/Button/CarSearchThin.png"));
         ImageIcon hoverImage4 = new ImageIcon(getClass().getResource("/carrentingapp/testimg/Button/CarSearchHover.png"));
@@ -97,13 +105,24 @@ public class NavBar {
         
     }
     
-    public void addToLayeredPane(JLayeredPane layeredPane)
+    public void addToLayeredPane()
     {
+        JLayeredPane layeredPane = window.getLayeredPane();
         layeredPane.add(button1);
         layeredPane.add(button2);
         layeredPane.add(button3);
         layeredPane.add(button4);
         layeredPane.add(button5);
+    }
+    
+    public void removeFromLayeredPane()
+    {
+        JLayeredPane layeredPane = window.getLayeredPane();
+        layeredPane.remove(button1);
+        layeredPane.remove(button2);
+        layeredPane.remove(button3);
+        layeredPane.remove(button4);
+        layeredPane.remove(button5);
     }
     
     public void setVisible(boolean visible)

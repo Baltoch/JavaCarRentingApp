@@ -6,7 +6,6 @@ package carrentingapp;
 
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 /**
@@ -21,13 +20,11 @@ public class HomePage extends Page {
     AppButton1 rentNow;
     AppButton2 browseMembership;
     
-    User user;
+    NavBar nav;
     
-    public HomePage(AppWindow appWindow, User user)
+    public HomePage(AppWindow appWindow)
     {
         super(appWindow);
-        
-        this.user = user;
         
         title = new JTextArea();
         title.setText("""
@@ -61,6 +58,8 @@ public class HomePage extends Page {
         browseMembership = new AppButton2("Browse Membership", 337, 512, 250, 50, 20);
         
         background = new AppBackground(window.getWidth(), window.getHeight());
+        
+        nav = new NavBar(window);
     }
     
     @Override
@@ -70,6 +69,7 @@ public class HomePage extends Page {
         window.getLayeredPane().add(subTitle);
         window.getLayeredPane().add(rentNow);
         window.getLayeredPane().add(browseMembership);
+        nav.addToLayeredPane();
         background.addToLayeredPane(window.getLayeredPane());
     }
     
@@ -80,6 +80,7 @@ public class HomePage extends Page {
         window.getLayeredPane().remove(subTitle);
         window.getLayeredPane().remove(rentNow);
         window.getLayeredPane().remove(browseMembership);
+        nav.removeFromLayeredPane();
         background.removeFromLayeredPane(window.getLayeredPane());
     }
     
@@ -90,7 +91,8 @@ public class HomePage extends Page {
         subTitle.setVisible(visible);
         rentNow.setVisible(visible);
         browseMembership.setVisible(visible);
-        background.setVisible(visible);
+        nav.setVisible(visible);
+        background.setVisible(visible);        
     }
     
 }

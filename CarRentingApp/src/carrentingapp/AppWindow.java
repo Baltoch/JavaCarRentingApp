@@ -25,6 +25,8 @@ public class AppWindow extends JFrame{
     
     public Page page;
     
+    public User user;
+    
     public AppWindow()
     {
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
@@ -48,7 +50,7 @@ public class AppWindow extends JFrame{
         //layeredPane.add(displaySize);
         
         NavBar nav = new NavBar(this);
-        nav.addToLayeredPane(layeredPane);
+        nav.addToLayeredPane();
         
         page = new LandingPage(this);
  
@@ -257,7 +259,8 @@ class LandingPage extends Page {
             tempUser.addToDB();
             window.page.removeFromLayeredPane();
             window.page.setVisible(false);
-            window.page = new HomePage(window, tempUser);
+            window.user = tempUser;
+            window.page = new HomePage(window);
             window.page.addToLayeredPane();
             window.page.setVisible(true);
             window.getLayeredPane().setVisible(false);
