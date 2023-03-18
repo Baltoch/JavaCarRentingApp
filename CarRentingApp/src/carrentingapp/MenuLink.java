@@ -19,6 +19,7 @@ public class MenuLink extends JButton {
         this.setFont(new java.awt.Font("Arial", 1, 20)); 
         this.setForeground(Color.WHITE);
         this.setText(text);
+        this.setBorderPainted(false);
         this.setFocusPainted(false);
         this.setContentAreaFilled(false);
     }
