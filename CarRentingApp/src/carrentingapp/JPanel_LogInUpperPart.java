@@ -37,6 +37,7 @@ public class JPanel_LogInUpperPart extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Welcome Back !");
 
         jTextField1.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N

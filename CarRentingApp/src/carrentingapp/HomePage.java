@@ -6,6 +6,7 @@ package carrentingapp;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 
 /**
@@ -54,6 +55,15 @@ public class HomePage extends Page {
         
         
         rentNow = new AppButton1("Rent Now", 167, 512, 150, 50, 20);
+        rentNow.addActionListener((ActionEvent evt) -> {
+            window.page.next = new RentalPickUpLocationPage(window);
+            window.page.next.prev = window.page;
+            window.page = window.page.next;
+            window.getLayeredPane().removeAll();
+            window.page.addToLayeredPane();
+            window.page.setVisible(false);
+            window.page.setVisible(true);
+        });
         
         browseMembership = new AppButton2("Browse Membership", 337, 512, 250, 50, 20);
         

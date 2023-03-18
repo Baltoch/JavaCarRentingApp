@@ -15,10 +15,13 @@ INSERT INTO Insurance (coverage, conditions, price) VALUES ("", "", 50);
 DROP TABLE IF EXISTS Locations;
 CREATE TABLE Locations(
    locationId INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-   name VARCHAR(50)
+   name VARCHAR(50),
+   image VARCHAR(250)
 );   
 
-INSERT INTO Locations (name) VALUES ("Paris");
+INSERT INTO Locations (name, image) VALUES ("Paris", "/carrentingapp/img/Paris.png");
+INSERT INTO Locations (name, image) VALUES ("London", "/carrentingapp/img/London.png");
+INSERT INTO Locations (name, image) VALUES ("New York", "/carrentingapp/img/New_York.png");
 
 DROP TABLE IF EXISTS Reviews;
 CREATE TABLE Reviews(
