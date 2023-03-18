@@ -102,11 +102,11 @@ class LandingPage extends Page {
     
     private JLabel signUpUpperImage;
     private JLabel signUpWelcomeText;
-    private JTextField firstName;
-    private JTextField lastName;
-    private JTextField signUpEmail;
-    private JPasswordField signUpPassword;
-    private JTextField driverLicense;
+    private AppTextField firstName;
+    private AppTextField lastName;
+    private AppTextField signUpEmail;
+    private AppPasswordField signUpPassword;
+    private AppTextField driverLicense;
     private JLabel toLoginOptionText;
     private JButton toLogIn;
     private JButton signUp;
@@ -212,36 +212,41 @@ class LandingPage extends Page {
         signUpWelcomeText.setHorizontalAlignment(JLabel.CENTER);
         signUpWelcomeText.setBounds((int) (widthRatio*883), (int) (heightRatio*54), (int) (widthRatio*242), (int) (heightRatio*58));
         
-        firstName = new JTextField(); 
+        firstName = new AppTextField("First Name", (int) (widthRatio*858), (int) (heightRatio*151),(int) (widthRatio*283), (int) (heightRatio*37)); 
+        /*
         firstName.setFont(new java.awt.Font("Arial", 0, 16)); 
         firstName.setForeground(AppWindow.CARROT_ORANGE);
         firstName.setText("First Name");
         firstName.setBounds((int) (widthRatio*858), (int) (heightRatio*151),(int) (widthRatio*283), (int) (heightRatio*37));
-        
-        lastName = new JTextField(); 
+        */
+        lastName = new AppTextField("Last Name", (int) (widthRatio*858), (int) (heightRatio*208),(int) (widthRatio*283), (int) (heightRatio*37));
+        /*
         lastName.setFont(new java.awt.Font("Arial", 0, 16)); 
         lastName.setForeground(AppWindow.CARROT_ORANGE);
         lastName.setText("Last Name");
         lastName.setBounds((int) (widthRatio*858), (int) (heightRatio*208),(int) (widthRatio*283), (int) (heightRatio*37));
-        
-        signUpEmail = new JTextField(); 
+        */
+        signUpEmail = new AppTextField("Email", (int) (widthRatio*858), (int) (heightRatio*264),(int) (widthRatio*283), (int) (heightRatio*37)); 
+        /*
         signUpEmail.setFont(new java.awt.Font("Arial", 0, 16)); 
         signUpEmail.setForeground(AppWindow.CARROT_ORANGE);
         signUpEmail.setText("Email");
         signUpEmail.setBounds((int) (widthRatio*858), (int) (heightRatio*264),(int) (widthRatio*283), (int) (heightRatio*37));
-        
-        signUpPassword = new JPasswordField();
+        */
+        signUpPassword = new AppPasswordField("Password", (int) (widthRatio*858), (int) (heightRatio*321), (int) (widthRatio*283), (int) (heightRatio*37));
+        /*
         signUpPassword.setFont(new java.awt.Font("Arial", 0, 16)); 
         signUpPassword.setForeground(AppWindow.CARROT_ORANGE);
         signUpPassword.setText("Password");
         signUpPassword.setBounds((int) (widthRatio*858), (int) (heightRatio*321), (int) (widthRatio*283), (int) (heightRatio*37));
-        
-        driverLicense = new JTextField(); 
+        */
+        driverLicense = new AppTextField("Driver License Number", (int) (widthRatio*858), (int) (heightRatio*378),(int) (widthRatio*283), (int) (heightRatio*37)); 
+        /*
         driverLicense.setFont(new java.awt.Font("Arial", 0, 16)); 
         driverLicense.setForeground(AppWindow.CARROT_ORANGE);
         driverLicense.setText("Driver License Number");
         driverLicense.setBounds((int) (widthRatio*858), (int) (heightRatio*378),(int) (widthRatio*283), (int) (heightRatio*37));
-        
+        */
         signUp = new JButton();
         signUp.setBackground(AppWindow.CARROT_ORANGE);
         signUp.setFont(new java.awt.Font("Arial", 1, 20)); 
