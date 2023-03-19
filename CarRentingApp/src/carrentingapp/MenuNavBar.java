@@ -58,8 +58,8 @@ public class MenuNavBar {
         button2.setIcon(new ImageIcon(image2.getImage().getScaledInstance(button2.getWidth(), button2.getHeight(), Image.SCALE_SMOOTH)));
         button2.setRolloverIcon(new ImageIcon(hoverImage2.getImage().getScaledInstance(button2.getWidth(), button2.getHeight(), Image.SCALE_SMOOTH)));
         button2.addActionListener((ActionEvent evt) -> {
-            window.page.removeFromLayeredPane();
             window.page = window.page.prev;
+            window.page.next = window.page.next.next;
             window.getLayeredPane().removeAll();
             window.page.addToLayeredPane();
             window.page.setVisible(false);

@@ -11,16 +11,18 @@ package carrentingapp;
 public class Location {
     private int locationId;
     private String name;
+    private String image;
 
-    public Location(int locationId, String name) {
+    public Location(int locationId, String name, String image) {
         this.locationId = locationId;
         this.name = name;
+        this.image = image;
     }
             
     public void addToDB()
     {
         MySqlConnection connection = new MySqlConnection();
-        connection.executeINSERTQuery("INSERT INTO Locations (name) VALUES (\""+name+"\")");
+        connection.executeINSERTQuery("INSERT INTO Locations (name, image) VALUES (\""+name+"\", \""+image+"\")");
         connection.close();
     }
     
@@ -34,11 +36,21 @@ public class Location {
     public void updateInDB()
     {
         MySqlConnection connection = new MySqlConnection();
-        connection.executeUPDATEQuery("UPDATE Locations SET name=\""+name+"\" WHERE locationId="+locationId);
+        connection.executeUPDATEQuery("UPDATE Locations SET name=\""+name+"\", image=\""+image+"\" WHERE locationId="+locationId);
         connection.close();
     }
 
     public int getId() {
         return locationId;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getImage() {
+        return image;
+    }
+    
+    
 }

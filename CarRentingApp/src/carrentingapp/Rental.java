@@ -20,6 +20,11 @@ public class Rental {
     private Location pickUpLocation;
     private Location returnLocation;
     private Insurance insurance;
+    
+    public Rental()
+    {
+        
+    }
 
     public Rental(int rentalId, Date startingDate, Date endingDate, int mileage, Employee validationOfficer, User renter, Transaction transaction, Car car, Location pickUpLocation, Location returnLocation, Insurance insurance) {
         this.rentalId = rentalId;

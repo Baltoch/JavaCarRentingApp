@@ -7,9 +7,6 @@ package carrentingapp;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
-import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLayeredPane;
 
@@ -17,57 +14,37 @@ import javax.swing.JLayeredPane;
  *
  * @author balth
  */
-public class RentalPickUpLocationPage extends Page {
+public class RentalDropOffLocationPage extends Page {
     
-    private JLabel title;
-    private JLabel locationName;
-    private LeftArrowButton leftArrow;
-    private RightArrowButton rightArrow;
-    private AppButton1 toNext;
-    private NavBar nav;
-    private AppBackground background;
+    JLabel title;
+    JLabel locationName;
+    LeftArrowButton leftArrow;
+    RightArrowButton rightArrow;
+    AppButton1 toNext;
+    AppButton3 toPrev;
+    NavBar nav;
+    AppBackground background;
     
-    private Location[] locations;
-    private int displayedIndex;
+    Location[] locations;
+    int displayedIndex;
     
     private Rental rental;
     
-    public RentalPickUpLocationPage(AppWindow appWindow)
+    public RentalDropOffLocationPage(AppWindow appWindow, Rental tempRental, Location[] tempLocations, int tempDisplayedIndex)
     {
         super(appWindow);
         
-        double widthRatio = window.getWidth()/1280;
-        double heightRatio = window.getHeight()/720;
+        double widthRatio = window.getWidth()/1280.0;
+        double heightRatio = window.getHeight()/720.0;
         
-        rental = new Rental();
-        rental.setRenter(window.user);
+        displayedIndex = tempDisplayedIndex;
         
-        displayedIndex = 0;
+        rental = tempRental;
         
-        MySqlConnection conn = new MySqlConnection();
-        ResultSet res = conn.executeSELECTQuery("SELECT COUNT(*) FROM Locations");
-        try {
-            res.next();
-            locations = new Location[res.getInt(1)];
-        } catch (SQLException ex) {
-            Logger.getLogger(RentalPickUpLocationPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        res = conn.executeSELECTQuery("SELECT * FROM Locations;");
-        try {
-            int i = 0;
-            while(res.next())
-            {
-                locations[i] = new Location(res.getInt("locationId"), res.getString("name"), res.getString("image"));
-                i++;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(RentalPickUpLocationPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        conn.close();
+        locations = tempLocations;
         
         title = new JLabel();
-        title.setText("Choose The Pick Up Location");
+        title.setText("Choose The Drop Off Location");
         title.setFont(new Font("Arial", Font.BOLD, (int) (heightRatio*40)));
         title.setForeground(AppWindow.OFF_WHITE);
         title.setHorizontalAlignment(JLabel.CENTER);
@@ -98,11 +75,11 @@ public class RentalPickUpLocationPage extends Page {
             background.changeImage(new ImageIcon(getClass().getResource(locations[displayedIndex].getImage())));
         });
                 
-        toNext = new AppButton1("Next", (int) (widthRatio*472), (int) (heightRatio*533), (int) (widthRatio*336), (int) (heightRatio*37));
+        toNext = new AppButton1("Next", (int) (widthRatio*661), (int) (heightRatio*533), (int) (widthRatio*187), (int) (heightRatio*37));
         toNext.addActionListener((ActionEvent evt) -> {
-            rental.setPickUpLocation(locations[displayedIndex]);
+            rental.setReturnLocation(locations[displayedIndex]);
             if(next == null) {
-                next = new RentalDropOffLocationPage(window, rental, locations, displayedIndex);
+                next = new RentalDatesPage(window, rental);
                 next.prev = this;
             }
             window.page = next;
@@ -112,6 +89,15 @@ public class RentalPickUpLocationPage extends Page {
             next.setVisible(true);
         });
         
+        toPrev = new AppButton3("Back", (int) (widthRatio*440), (int) (heightRatio*533), (int) (widthRatio*187), (int) (heightRatio*37));
+        toPrev.addActionListener((ActionEvent evt) -> {
+            rental.setReturnLocation(locations[displayedIndex]);
+            window.page = prev;
+            window.getLayeredPane().removeAll();
+            prev.addToLayeredPane();
+            prev.setVisible(false);
+            prev.setVisible(true);
+        });
         
         nav = new NavBar(window);
                 
@@ -128,6 +114,7 @@ public class RentalPickUpLocationPage extends Page {
         layeredPane.add(leftArrow);
         layeredPane.add(rightArrow);
         layeredPane.add(toNext);
+        layeredPane.add(toPrev);
         nav.addToLayeredPane();
         background.addToLayeredPane(layeredPane);
         
@@ -141,6 +128,7 @@ public class RentalPickUpLocationPage extends Page {
         layeredPane.remove(leftArrow);
         layeredPane.remove(rightArrow);
         layeredPane.remove(toNext);
+        layeredPane.remove(toPrev);
         nav.removeFromLayeredPane();
         background.removeFromLayeredPane(layeredPane);
     }
@@ -152,6 +140,7 @@ public class RentalPickUpLocationPage extends Page {
         leftArrow.setVisible(visible);
         rightArrow.setVisible(visible);
         toNext.setVisible(visible);
+        toPrev.setVisible(visible);
         nav.setVisible(visible);
         background.setVisible(visible);
     }
